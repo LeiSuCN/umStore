@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.uguanjia.o2o.store.dao.StoreDao"> 
+
+	<resultMap type="com.uguanjia.o2o.Store"  id="Store">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="legalPerson" column="legal_person"/>
+		<result property="registrationNo" column="registration_no"/>
+		<result property="phonenumber" column="phonenumber"/>
+		<result property="address" column="address"/>
+		<result property="alipay" column="alipay"/>
+		<result property="area" column="area"/>
+		<result property="lat" column="lat"/>
+		<result property="lon" column="lon"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	
+	<!--  store_main_info -->
+    <select id="queryStoreById" resultMap="Store">
+    	SELECT 
+    		* 
+    	FROM 
+    		store_main_info
+    	WHERE
+    		id = #{0}
+    </select>	
+	
+    <select id="queryStoreByPhonenumber" resultMap="Store">
+    	SELECT 
+    		* 
+    	FROM 
+    		store_main_info
+    	WHERE
+    		phonenumber = #{0}
+    </select>	
+
+</mapper>
